@@ -1,0 +1,113 @@
+/*********** Start buttons ************/
+
+.main-btn {
+    padding: 7px 40px;
+    color: #fff;
+    transition: .3s;
+    display: inline-block;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0 15px;
+    &.dark-btn {
+        background-color: $pColor;
+        color: #fff;
+        &:hover {
+            background-color: rgb(88, 88, 88);
+        }
+    }
+    &.padding {
+        padding: 12px 40px;
+    }
+    &.main {
+        background-color: $secColor;
+        color: #222;
+        &:hover {
+            background-color: $mainColor;
+            color: #222 !important;
+        }
+    }
+    &.sec {
+        background-color: $secColor;
+        color: #222;
+        &:hover {
+            background-color: $mainColor;
+            color: #222 !important;
+        }
+    }
+    &.trans {
+        background-color: rgba($color: #FF713B, $alpha: 0.1);
+        color: $secColor;
+        &:hover {
+            background-color: $secColor;
+            color: #fff !important;
+        }
+    }
+    &.animate {
+        overflow: hidden;
+        z-index: 0;
+        position: relative;
+        background-color: $secColor;
+        color: #fff;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            content: "";
+            background-color: #525252;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transform-origin: right top;
+            -ms-transform-origin: right top;
+            transform-origin: right top;
+            transition: transform .5s cubic-bezier(.86, 0, .07, 1) 0s, -webkit-transform .5s 0s;
+        }
+        &:hover {
+            color: #fff !important;
+            &:before {
+                -webkit-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                transform: scale(1, 1);
+                -webkit-transform-origin: top left;
+                -ms-transform-origin: top left;
+                transform-origin: top left;
+            }
+        }
+        &.main {
+            background-color: $mainColor;
+            &:before {
+                background-color: $secColor;
+            }
+        }
+        &.sec {
+            background-color: #97bed5;
+            color: $mainColor;
+            &:before {
+                background-color: $mainColor;
+            }
+        }
+        &.trans {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid $secColor;
+            &:before {
+                background-color: $secColor;
+            }
+        }
+    }
+    &.close {
+        background-color: #f44336;
+        &:hover {
+            background-color: #bf5048;
+        }
+    }
+}
+
+
+/*********** End buttons ************/

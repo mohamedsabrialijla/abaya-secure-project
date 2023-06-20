@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="391" height="55" viewBox="0 0 391 55">
+  <g id="Group_35" data-name="Group 35" transform="translate(-501 -222)">
+    <g id="Group_34" data-name="Group 34">
+      <g id="Group_31" data-name="Group 31">
+        <g id="Ellipse_7" data-name="Ellipse 7" transform="translate(518 222)" fill="#c9961a" stroke="#c9961a" stroke-width="1">
+          <circle cx="13" cy="13" r="13" stroke="none"/>
+          <circle cx="13" cy="13" r="12.5" fill="none"/>
+        </g>
+        <text id="_1" data-name="1" transform="translate(531 241)" fill="#fff" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-4.492" y="0">1</tspan></text>
+      </g>
+      <g id="Group_32" data-name="Group 32" transform="translate(163)">
+        <g id="Ellipse_7-2" data-name="Ellipse 7" transform="translate(518 222)" fill="#fff" stroke="#c9961a" stroke-width="1">
+          <circle cx="13" cy="13" r="13" stroke="none"/>
+          <circle cx="13" cy="13" r="12.5" fill="none"/>
+        </g>
+        <text id="_2" data-name="2" transform="translate(531 240)" fill="#474747" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-4.492" y="0">2</tspan></text>
+      </g>
+      <g id="Group_33" data-name="Group 33" transform="translate(326)">
+        <g id="Ellipse_7-3" data-name="Ellipse 7" transform="translate(518 222)" fill="#fff" stroke="#c9961a" stroke-width="1">
+          <circle cx="13" cy="13" r="13" stroke="none"/>
+          <circle cx="13" cy="13" r="12.5" fill="none"/>
+        </g>
+        <text id="_3" data-name="3" transform="translate(531 241)" fill="#474747" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-4.492" y="0">3</tspan></text>
+      </g>
+      <line id="Line_2" data-name="Line 2" x2="137" transform="translate(544.5 235.5)" fill="none" stroke="#707070" stroke-width="1" stroke-dasharray="5"/>
+      <line id="Line_3" data-name="Line 3" x2="137" transform="translate(707.5 235.5)" fill="none" stroke="#707070" stroke-width="1" stroke-dasharray="5"/>
+    </g>
+    <text id="Charged" transform="translate(531 273)" fill="#c9961a" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-29.91" y="0">Charged</tspan></text>
+    <text id="On_the_way" data-name="On the way" transform="translate(694 273)" fill="#707070" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-39.281" y="0">On the way</tspan></text>
+    <text id="Delivered_" data-name="Delivered " transform="translate(857 273)" fill="#707070" font-size="16" font-family="Roboto-Regular, Roboto"><tspan x="-34.918" y="0">Delivered </tspan></text>
+  </g>
+</svg>

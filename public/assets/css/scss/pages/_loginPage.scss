@@ -1,0 +1,236 @@
+/*--------------------------------------------------------------
+# Start login page
+--------------------------------------------------------------*/
+
+.login_page {
+    padding: 50px 0;
+    .box-content {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    .content {
+        box-shadow: 0px 5px 12px #0000000F;
+        border-radius: 5px;
+        background: #fff;
+        width: 50%;
+        margin: 0 auto;
+        overflow: hidden;
+        .box-form {
+            padding: 40px 60px;
+            background-color: #FAFAFA;
+            height: 100%;
+            .head {
+                margin-bottom: 30px;
+                color: #222;
+                text-align: center;
+            }
+            input[type='file'] {
+                padding: 3px !important;
+            }
+            label {
+                color: #7A7A7A;
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+            textarea.form-control {
+                resize: none;
+                height: 150px;
+                padding: 10px;
+            }
+            .submit-btn {
+                width: 100%;
+                border: 0;
+                border-radius: 5px;
+                padding: 12px;
+                background-color: $pColor;
+            }
+            .other_login {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                border-top: 1px solid #DCDCDC;
+                padding-top: 16px;
+            }
+            .main-btn.trans {
+                width: 50%;
+                font-size: 13px;
+            }
+        }
+    }
+    #phone-content {
+        .icon {
+            border: 0;
+            padding: 0;
+            border-inline-start: 1px solid #ccc;
+            padding-inline-start: 15px;
+        }
+        select {
+            border: 0;
+            background: none;
+            margin-inline-end: 10px;
+            padding-inline-end: 5px;
+            color: #2a2424;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+    .forget_pass {
+        display: block;
+        text-align: end;
+        font-size: 14px;
+        margin-top: 5px;
+        color: $mainColor;
+    }
+    &.problems_page {
+        .content {
+            width: 60%;
+        }
+        .box-form .head {
+            h5 {
+                font-size: 18px;
+                margin: 15px 0 0;
+                font-weight: bold;
+                line-height: 1.6;
+            }
+        }
+    }
+    .small-text {
+        margin: -4px 0 7px;
+        font-size: 13px;
+        color: #aaa;
+    }
+    .register-div {
+        p {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        a {
+            font-weight: 600;
+            color: #988a76;
+        }
+    }
+    a {
+        &:hover {
+            color: #0074ff;
+        }
+    }
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #DCDCDC;
+    box-shadow: none;
+    height: 42px;
+    background-color: #F8F8F8;
+    padding: 0 10px;
+    border-radius: 3px;
+    .icon {
+        display: inline-block;
+        border-inline-end: 1px solid #ccc;
+        padding-inline-end: 10px;
+    }
+    .form-control {
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        &::placeholder {
+            color: #B8B8B8;
+        }
+    }
+}
+
+.pass-group {
+    position: relative;
+    .toggle-password {
+        position: absolute;
+        left: 15px;
+        top: 20px;
+        transform: translateY(-50%);
+        color: #77778d;
+        font-size: 18px;
+        cursor: pointer;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End login page
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Start verify page
+--------------------------------------------------------------*/
+
+.verify_page {
+    #timer {
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .box {
+        box-shadow: 0px 8px 23px rgba($color: #000000, $alpha: 0.05);
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 5px;
+        padding: 31px 20px 47px;
+        font-family: "neoRegular";
+        .head {
+            font-family: "neoMed";
+        }
+    }
+    .veri_inputs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        direction: ltr;
+        gap: 0 13px;
+        margin: 20px 0;
+    }
+    .verify-input-field {
+        height: 45px;
+        width: 50px;
+        text-align: center;
+        font-size: 25px;
+        outline: none;
+        border: 1px solid #B7B7B7;
+        border-radius: 8px;
+        color: rgba(0, 0, 0, 0.8);
+        caret-color: rgba(0, 0, 0, 0.3);
+        transition: all 0.1s ease-out;
+        box-shadow: 0px 3px 7px rgb(0 0 0 / 11%);
+        &::selection {
+            background: transparent;
+        }
+    }
+    .verify-input-field:focus {
+        border: 3px solid #998b77;
+    }
+    .details {
+        font-weight: 500;
+        p {
+            margin-bottom: 7px;
+        }
+        a {
+            font-size: 19px;
+        }
+    }
+    .icon {
+        margin: 30px 0;
+        img {
+            width: 100px;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End verify page
+--------------------------------------------------------------*/

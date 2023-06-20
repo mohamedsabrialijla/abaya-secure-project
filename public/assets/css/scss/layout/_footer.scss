@@ -1,0 +1,185 @@
+/*--------------------------------------------------------------
+# Start Footer
+--------------------------------------------------------------*/
+
+.footer {
+    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    &:before {
+        content: "";
+        width: 100%;
+        height: 16px;
+        position: absolute;
+        top: -2px;
+        left: 0;
+        background-image: url(../img/ripped-paper-header-1.png);
+        background-position: center center;
+        background-size: cover;
+        z-index: 9;
+    }
+    &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: $pColor, $alpha: 0.9);
+    }
+    .footer-top {
+        padding: 40px 0;
+    }
+    .site_info {
+        padding-inline-end: 80px;
+        p {
+            color: #f6fafc;
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+        .logo {
+            display: block;
+            background: #fff;
+            text-align: center;
+            padding: 10px;
+            img {
+                width: 60px;
+            }
+        }
+    }
+    .services_box {
+        column-count: 2;
+        li {
+            margin-bottom: 12px;
+            a {
+                font-size: 14px;
+                color: #d3dee4;
+                display: flex;
+                align-items: center;
+                gap: 0 6px;
+                &:hover {
+                    color: $mainColor;
+                }
+            }
+        }
+    }
+    .sochial {
+        a {
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            color: $mainColor;
+            margin-inline-end: 5px;
+            &:hover {
+                background-color: $mainColor;
+                color: #fff;
+            }
+        }
+    }
+    .contact-info {
+        a {
+            color: #fff;
+            gap: 0 8px;
+            margin-bottom: 7px;
+            &:hover {
+                color: $mainColor;
+            }
+        }
+    }
+    .apps_box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        a {
+            display: block;
+            img {
+                max-width: 165px;
+            }
+        }
+    }
+}
+
+.copyrights {
+    padding: 20px 0;
+    border-top: 1px solid #f2f2f240;
+    font-size: 14px;
+    a:hover {
+        color: $secColor;
+    }
+}
+
+.footer_sochial {
+    position: fixed;
+    z-index: 9;
+    left: 10px;
+    right: auto;
+    bottom: 10px;
+}
+
+.footer_sochial a {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    background: #000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #fff;
+    box-shadow: 0px 3px 6px rgb(0 0 0 / 14%);
+    animation: scale_1 2s infinite;
+}
+
+.footer_sochial a.mobile {
+    background-color: #3CD6BC;
+    animation: scale_2 2s infinite;
+}
+
+.footer_sochial a.whatsapp {
+    background-color: #1EC845;
+    animation: scale_1 2s infinite;
+}
+
+@keyframes scale_1 {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes scale_2 {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+@media(max-width:575.98px) {
+    .footer_sochial a {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End Footer
+--------------------------------------------------------------*/

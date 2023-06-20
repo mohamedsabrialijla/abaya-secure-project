@@ -1,0 +1,324 @@
+/*--------------------------------------------------------------
+# Start responsive
+--------------------------------------------------------------*/
+
+@media(max-width:1199.98px) {
+    .header-logo {
+        text-align: center;
+    }
+    .nav-mobile {
+        display: inline-flex !important;
+        align-items: center;
+    }
+}
+
+@media(max-width:991.98px) {
+    .nav_bar {
+        .nav-list {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #231f20;
+            height: 100%;
+            z-index: 999999;
+            padding: 70px 25px 30px;
+            width: 100%;
+            display: block;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.5s;
+            overflow: auto;
+            &::-webkit-scrollbar-track {
+                background-color: #d7d7d7;
+            }
+            &::-webkit-scrollbar {
+                width: 6px;
+                background-color: #F5F5F5;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 0;
+                background-color: $mainColor;
+            }
+            ul {
+                gap: 15px 0;
+                flex-direction: column;
+                align-items: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                li {
+                    transform: translateX(200px);
+                    opacity: 0;
+                    transition: 0.5s;
+                    &:nth-of-type(1) {
+                        animation-delay: 0.2s !important;
+                    }
+                    &:nth-of-type(2) {
+                        animation-delay: 0.3s !important;
+                    }
+                    &:nth-of-type(3) {
+                        animation-delay: 0.4s !important;
+                    }
+                    &:nth-of-type(4) {
+                        animation-delay: 0.5s !important;
+                    }
+                    &:nth-of-type(5) {
+                        animation-delay: 0.6s !important;
+                    }
+                    &:nth-of-type(6) {
+                        animation-delay: 0.7s !important;
+                    }
+                    &:nth-of-type(7) {
+                        animation-delay: 0.8s !important;
+                    }
+                    &:nth-of-type(8) {
+                        animation-delay: 0.9s !important;
+                    }
+                    a {
+                        font-size: 35px;
+                        font-weight: 900;
+                        color: #fff;
+                    }
+                }
+            }
+            &.open {
+                transform: translateY(0%);
+                opacity: 1;
+                ul {
+                    opacity: 1;
+                    visibility: visible;
+                    li {
+                        animation: animate_links 1s ease-in-out forwards;
+                    }
+                }
+            }
+        }
+    }
+    .nav_bar .dropdown_item {
+        &:hover {
+            .dropdown_menu {
+                display: block;
+            }
+        }
+        .dropdown_menu {
+            position: unset;
+            margin-top: 0;
+            min-width: auto;
+            background-color: transparent;
+            box-shadow: none;
+            opacity: 1;
+            visibility: visible;
+            display: none;
+        }
+    }
+    .icon-box-wrapper .icon-box-side {
+        padding: 25px;
+        justify-content: start;
+    }
+    .mt-md-30 {
+        margin-top: 30px;
+    }
+    .mt-md-60 {
+        margin-top: 60px;
+    }
+    .login_page .content {
+        width: 80%;
+    }
+    .about_section_2 .custom-padding {
+        padding-inline-start: 15px;
+    }
+    .funfacts_section .inner:before {
+        display: none;
+    }
+    .funfacts_section .inner {
+        margin-bottom: 0;
+    }
+    .o-2 {
+        order: 2;
+    }
+    .profile_page .content_page {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px 0 30px;
+    }
+    .profile_page .profile_card {
+        max-width: 100%;
+        border-inline-end: 0;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 15px;
+    }
+    .box-style .details {
+        column-count: 2;
+    }
+    .box-style hr {
+        margin: 5px 0 20px;
+    }
+}
+
+@media(max-width:767.98px) {
+    .promo-section {
+        .banner-content {
+            gap: 20px;
+        }
+        h2 {
+            font-size: 26px;
+        }
+    }
+    .footer {
+        [class*="col-"]:not(:last-of-type) {
+            margin-bottom: 50px;
+        }
+    }
+    .single_product_page .owl-carousel .owl-nav {
+        display: none;
+    }
+    .login_page .content {
+        width: 90%;
+        .box-form {
+            padding: 30px 20px;
+            background-color: #f6f6f6
+        }
+    }
+    #payment_process .section--payment .payment-step {
+        padding-inline-start: 0;
+    }
+    #payment_process .section--payment {
+        padding: 10px 10px 0;
+    }
+    #payment_process .section--payment .payment-step .title--step {
+        padding-inline-start: 10px;
+    }
+    #payment_process .section--payment .payment-step .title--step:before {
+        font-size: 9px;
+        height: 20px;
+        width: 20px;
+        right: -23px;
+        top: 1px;
+    }
+    #payment_process .store-info__detail h1 {
+        font-size: 18px;
+    }
+    .about_section_2 {
+        padding: 70px 0 40px;
+    }
+    .features_section .whay-choose-block {
+        padding-top: 25px;
+    }
+    .features_section .inner-box {
+        margin-bottom: 10px;
+    }
+    #help_section .info_box .head {
+        font-size: 28px;
+    }
+    .list--shipping-address {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .card.body-products .card-body .form-group .item .nice-select.form-control.select .list {
+        left: 0;
+        right: auto;
+    }
+    .profile_page .no-found h2 {
+        font-size: 20px;
+    }
+    #progressbar {
+        flex-wrap: wrap;
+        li {
+            max-width: 50%;
+            flex: 50%;
+            margin-bottom: 20px;
+        }
+    }
+    .header-list .header-right {
+        flex: 1 1 0%;
+    }
+}
+
+@media(max-width:575.98px) {
+    .side-sticky-icons {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        padding: 0 10px;
+    }
+    .footer_sochial {
+        bottom: 90px;
+    }
+    #up_btn {
+        display: none;
+    }
+    .header_section nav div {
+        width: 30px;
+        height: 30px;
+    }
+    .header-list .logo img {
+        max-width: 43px;
+    }
+    .footer .site_info {
+        padding-inline-end: 15px;
+    }
+    .single_product_page .product-details {
+        padding: 0;
+    }
+    .review-form-section .review-form-wrapper {
+        width: 80%;
+    }
+    .single_product_page .nav-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    .page_header {
+        height: 130px;
+        .page_name {
+            font-size: 28px;
+        }
+    }
+    .contact_page {
+        margin: 0 !important;
+    }
+    .features_section .inner-box {
+        padding-inline-start: 130px;
+    }
+    .features_section .inner-box .icon:before {
+        width: 70px;
+        height: 70px;
+    }
+    .features_section .inner-box .icon {
+        right: 20px;
+    }
+    .features_section .inner-box {
+        padding-inline-start: 106px;
+    }
+    .about_section_2 .welcome-image-box .thm-shape {
+        left: -50%;
+        right: auto;
+        width: 200%;
+    }
+    .about_section_2 .welcome-image-box .inner img {
+        height: auto;
+    }
+    .quickview_box .single_product_page {
+        padding: 15px;
+    }
+    .profile_page #wallet_section .box:first-of-type {
+        border-inline-end: 0;
+        margin-bottom: 30px;
+    }
+    .profile_page #wallet_section .share_box .main-btn {
+        width: 100%;
+    }
+    .box-style .details {
+        column-count: 1;
+    }
+    .box-style h4 {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:400px) {}
+
+
+/*--------------------------------------------------------------
+# End responsive
+--------------------------------------------------------------*/

@@ -1,0 +1,265 @@
+/*--------------------------------------------------------------
+# Start Profile Page
+--------------------------------------------------------------*/
+
+.profile_page {
+    background-color: rgba(152, 138, 118, 0.0509803922);
+    padding-bottom: 50px;
+    .content_page {
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #dfdfdf;
+        padding: 47px 0 60px;
+        min-height: 500px;
+        display: flex;
+    }
+    .profile_card {
+        max-width: 240px;
+        flex: 1;
+        border-inline-end: 1px solid #dfdfdf;
+        text-align: center;
+        .profile_tabs_control {
+            li {
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                gap: 0 7px;
+                padding: 10px 0;
+                margin-bottom: 5px;
+                line-height: normal;
+                padding-inline-start: 15px;
+                transition: 0.3s;
+                cursor: pointer;
+                &.active {
+                    background-color: $mainColor;
+                    color: #fff;
+                    border-inline-end: 3px solid $secColor;
+                }
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 19px;
+                }
+            }
+        }
+    }
+    .profile_content {
+        flex: 1;
+        padding: 0 30px;
+        .box_content {
+            display: none;
+            opacity: 0;
+            transition: .3s;
+            @include start_FadeInUp;
+            &.active {
+                display: block;
+                @include animation_FadeInUp;
+            }
+        }
+        .title h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .input-box {
+            background-color: #fdfdfd;
+        }
+        .order_box {
+            background-color: #fcfcfc;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20px 18px;
+            box-shadow: 0px 4px 10px rgb(0 0 0 / 10%);
+            border-radius: 5px;
+            .status {
+                background-color: #000;
+                color: #fff;
+                border-radius: 3px;
+                padding: 3px 10px;
+                font-size: 13px;
+                &.red {
+                    background-color: #dc3545;
+                }
+                &.green {
+                    background-color: #35dc3d;
+                }
+                &.yellow {
+                    background-color: #dbd217;
+                    color: #000;
+                }
+            }
+            .product-title a {
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .price {
+                margin: 8px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+    #User_info {
+        .image {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+            label {
+                margin: 0;
+                position: absolute;
+                right: 0;
+                bottom: 7px;
+                background: $mainColor;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 15px;
+                color: #fff;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                    background-color: $secColor;
+                }
+            }
+        }
+    }
+    #wallet_section {
+        .box {
+            &:first-of-type {
+                border-inline-end: 1px solid #ddd;
+            }
+            img {
+                width: 70px;
+            }
+            h6 {
+                margin: 10px 0;
+                font-weight: 600;
+            }
+            .balance {
+                background: rgba(41, 199, 71, 0.1);
+                color: #29c747;
+                font-size: 16px;
+                padding: 15px 20px;
+            }
+        }
+        .share_box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            img {
+                width: 100px;
+            }
+            h5 {
+                margin: 10px 0;
+                font-size: 18px;
+            }
+            .word {
+                padding: 7px 30px;
+                border: 1px dashed $mainColor;
+                border-radius: 9px;
+                font-weight: 600;
+                margin-bottom: 7px;
+            }
+        }
+    }
+    .noti_box {
+        border: 1px solid #DFE7F3;
+        border-radius: 5px;
+        padding: 25px;
+        margin-bottom: 13px;
+        transition: 0.3s;
+        display: block;
+        &:hover {
+            box-shadow: 0px 13px 46px rgba($color: $mainColor, $alpha: 0.1);
+        }
+        .head {
+            color: $mainColor;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .desc {
+            color: #ACABAB;
+            font-size: 14px;
+        }
+    }
+    .no-found {
+        h2 {
+            margin: 0;
+            font-weight: 600;
+            color: #aaa;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End Profile Page
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Start custom modal
+--------------------------------------------------------------*/
+
+.custom_modal {
+    .modal-content {
+        padding: 25px;
+        background-color: #242328;
+        border: 0;
+        border-radius: 8px;
+        text-align: center;
+        .modal-body {
+            padding: 0;
+            p {
+                color: #fff;
+                font-size: 20px;
+            }
+        }
+        .modal-footer {
+            margin-top: 15px;
+            padding: 0;
+            border: 0;
+            justify-content: center;
+            .main-btn {
+                font-size: 18px;
+                padding: 8px 40px;
+                border: 0;
+                &.delete {
+                    background-color: #dc3545;
+                    &:hover {
+                        background-color: rgba($color: #dc3545, $alpha: 0.8);
+                        color: #fff;
+                    }
+                }
+                &.close_btn {
+                    background-color: #494949;
+                    &:hover {
+                        background-color: rgba($color: #494949, $alpha: 0.8);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End custom modal
+--------------------------------------------------------------*/

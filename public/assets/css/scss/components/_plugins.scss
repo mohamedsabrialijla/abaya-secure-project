@@ -1,0 +1,310 @@
+/*start button up*/
+
+#up_btn {
+    position: fixed;
+    right: 25px;
+    bottom: 10px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    color: #fff;
+    background-color: $secColor;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 14px;
+    transform: rotate(45deg);
+    i {
+        transform: rotate(-45deg);
+    }
+}
+
+#up_btn:hover {
+    background-color: $mainColor;
+}
+
+#up_btn.fade {
+    visibility: visible;
+    opacity: 1;
+    bottom: 30px;
+}
+
+
+/*End button up*/
+
+
+/*--------------------------------------------------------------
+# Start gsap reveal
+--------------------------------------------------------------*/
+
+.gsap-reveal {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+    }
+}
+
+.gsap-reveal-hero {
+    line-height: 0;
+    .reveal-wrap {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($secColor, 1);
+            margin-left: -100%;
+            z-index: 2;
+        }
+        .reveal-content {
+            line-height: 1.5;
+            z-index: 1;
+            display: block;
+            transform: translateX(-100%);
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End gsap reveal
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Start animate css
+--------------------------------------------------------------*/
+
+@-webkit-keyframes zoomIn {
+    0% {
+        -webkit-transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        -webkit-transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        transform: scale3d(.3, .3, .3)
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        opacity: 0;
+        transform: translate3d(0, 100%, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        opacity: 0;
+        transform: translate3d(0, 100%, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        opacity: 0;
+        transform: translate3d(100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        opacity: 0;
+        transform: translate3d(100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translateZ(0);
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-fill-mode: both
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+.animated.delay-1s {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s
+}
+
+.animated.delay-2s {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s
+}
+
+.animated.delay-3s {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s
+}
+
+.animated.delay-4s {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s
+}
+
+.animated.delay-5s {
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s
+}
+
+.animated.fast {
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s
+}
+
+.animated.faster {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s
+}
+
+.animated.slow {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s
+}
+
+.animated.slower {
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s
+}
+
+@media (prefers-reduced-motion),
+(print) {
+    .animated {
+        -webkit-animation: unset!important;
+        -webkit-transition: none!important;
+        animation: unset!important;
+        transition: none!important
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End animate css
+--------------------------------------------------------------*/

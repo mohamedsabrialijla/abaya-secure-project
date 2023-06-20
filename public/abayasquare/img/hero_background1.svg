@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1170" height="1085" viewBox="0 0 1170 1085">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="103" y="26" width="1170" height="1085" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect x="-102" width="1293" height="1111" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.871" y1="0.834" x2="0.6" y2="0.473" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.065" y1="0.778" x2="0.343" y2="-0.127" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Scroll_Group_6" data-name="Scroll Group 6" transform="translate(-103 -26)" clip-path="url(#clip-path)" style="isolation: isolate">
+    <g id="Scroll_Group_5" data-name="Scroll Group 5" transform="translate(103)" clip-path="url(#clip-path-2)" style="isolation: isolate">
+      <path id="Path_2" data-name="Path 2" d="M1099.784,73.241C780.391,344.235,742.99,483.9,339.618,466.057S-88.936,843.56,164.58,998.807s888.194,205.9,1107.242-226.893S1419.177-197.753,1099.784,73.241Z" fill="#121213"/>
+    </g>
+    <rect id="Rectangle_5" data-name="Rectangle 5" width="570" height="570" rx="285" transform="translate(0 181)" opacity="0.413" fill="url(#linear-gradient)"/>
+    <rect id="Rectangle_5-2" data-name="Rectangle 5" width="570" height="570" rx="285" transform="translate(552 197)" opacity="0.413" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>

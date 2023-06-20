@@ -1,0 +1,151 @@
+/*--------------------------------------------------------------
+# Start error page
+--------------------------------------------------------------*/
+
+.error_page {
+    background-color: #fff;
+    padding: 70px 0;
+    #particles-js {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+    }
+    .content {
+        position: relative;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        align-items: center;
+        -ms-flex-align: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        .content-box {
+            width: auto;
+            position: relative;
+            .big-content {
+                position: relative;
+                width: 22rem;
+                min-height: 22rem;
+                margin: 0 auto 3rem;
+            }
+            .list-square {
+                float: left;
+            }
+            span.square {
+                display: block;
+                background: transparent;
+                width: 5rem;
+                height: 5rem;
+                -webkit-border-radius: 0.5rem;
+                -moz-border-radius: .5rem;
+                -ms-border-radius: .5rem;
+                border-radius: 0.5rem;
+                border: 1rem solid $mainColor;
+                margin-bottom: 1.5rem;
+            }
+            .list-line {
+                float: left;
+                margin-left: 2rem;
+            }
+            span.line {
+                display: block;
+                background: $mainColor;
+                width: 15rem;
+                height: 1rem;
+                -webkit-border-radius: 0.5rem;
+                -moz-border-radius: .5rem;
+                -ms-border-radius: .5rem;
+                border-radius: 0.5rem;
+                margin-bottom: 2.3rem;
+            }
+            .fa-search {
+                position: absolute;
+                top: 10rem;
+                left: 15rem;
+                font-size: 10rem;
+                color: $secColor;
+                -webkit-animation: corner 5s infinite;
+                -moz-animation: corner 5s infinite;
+                animation: corner 5s infinite;
+            }
+        }
+    }
+    .clear {
+        clear: both;
+    }
+}
+
+@keyframes corner {
+    0% {
+        -webkit-transform: translate(-2rem, 0);
+        -moz-transform: translate(-2rem, 0);
+        -ms-transform: translate(-2rem, 0);
+        -o-transform: translate(-2rem, 0);
+        transform: translate(-2rem, 0);
+        -webkit-animation-timing-function: 0, 0.02, 0, 1.01;
+        -moz-animation-timing-function: 0, 0.02, 0, 1.01;
+        animation-timing-function: 0, 0.02, 0, 1.01;
+    }
+    20% {
+        -webkit-transform: translate(-15rem, 2rem);
+        -moz-transform: translate(-15rem, 2rem);
+        -ms-transform: translate(-15rem, 2rem);
+        -o-transform: translate(-15rem, 2rem);
+        transform: translate(-15rem, 2rem);
+    }
+    40% {
+        -webkit-transform: translate(-7rem, -7rem);
+        -moz-transform: translate(-7rem, -7rem);
+        -ms-transform: translate(-7rem, -7rem);
+        -o-transform: translate(-7rem, -7rem);
+        transform: translate(-7rem, -7rem);
+        animation-timing-function: cubic-bezier(0, 0.02, 0, 1.01);
+    }
+    60% {
+        -webkit-transform: translate(-15rem, -10rem);
+        -moz-transform: translate(-15rem, -10rem);
+        -ms-transform: translate(-15rem, -10rem);
+        -o-transform: translate(-15rem, -10rem);
+        transform: translate(-15rem, -10rem);
+    }
+    80% {
+        -webkit-transform: translate(2rem, -12rem);
+        -moz-transform: translate(2rem, -12rem);
+        -ms-transform: translate(2rem, -12rem);
+        -o-transform: translate(2rem, -12rem);
+        transform: translate(2rem, -12rem);
+    }
+    100% {
+        -webkit-transform: translate(-2rem, 0);
+        -moz-transform: translate(-2rem, 0);
+        -ms-transform: translate(-2rem, 0);
+        -o-transform: translate(-2rem, 0);
+        transform: translate(-2rem, 0);
+    }
+}
+
+
+/*--------------------------------------------------------------
+# End error page
+--------------------------------------------------------------*/

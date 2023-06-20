@@ -1,0 +1,23 @@
+.filter-cat{
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.filter-cat::-webkit-scrollbar{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+.filter-cat::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+.filter-cat::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.filter-title {
+    /*margin-left: 37px;*/
+    font-weight: bolder;
+    border-bottom: 1px solid #ccc;
+}
