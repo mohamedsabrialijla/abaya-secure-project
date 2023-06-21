@@ -1,0 +1,1715 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Base App API swagger documentation",
+        "description": "This is Base project API Documentation",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "info@selsela.net"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "local server"
+        }
+    ],
+    "paths": {
+        "/api/v1/customer/auth/login-register": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "Customer login or register",
+                "description": "User login service returns user object",
+                "operationId": "login",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "mobile_code": {
+                                        "description": "customer  mobile code",
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "description": "customer  mobile",
+                                        "type": "number"
+                                    },
+                                    "email": {
+                                        "description": "customer  email",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/auth/verify-login-code": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "verify login code",
+                "description": "Activate User account service returns user object in case of success",
+                "operationId": "apiValidateMobile",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "code"
+                                ],
+                                "properties": {
+                                    "mobile": {
+                                        "description": "user mobile",
+                                        "type": "number"
+                                    },
+                                    "email": {
+                                        "description": "user email",
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "description": "activation code recieved on either mobile or email",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "user not found or code is wronge or user is already activated"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/auth/resend-verify-code": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "resend verify code",
+                "description": "User login service returns user object",
+                "operationId": "update customer logout",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "mobile": {
+                                        "description": "mobile",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "email",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/update-profile": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "customer update profile",
+                "description": "User login service returns user object",
+                "operationId": "update profile  ",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": "name",
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "description": "customer  mobile ",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "customer  email ",
+                                        "type": "string"
+                                    },
+                                    "avatar": {
+                                        "description": "profile image",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/auth/logout": {
+            "get": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "customer logout ",
+                "description": "User login service returns user object",
+                "operationId": "update customer logout",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/convert-points-to-cash": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "convert points to cash",
+                "description": "User login service returns user object",
+                "operationId": "convert-points-to-cash",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/my-data": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "get my data -- customer",
+                "description": "User login service returns user object",
+                "operationId": "my-data",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/clear-notifications": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "clear customer notification -- customer",
+                "description": "User login service returns user object",
+                "operationId": "clear notification",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/delete-notification": {
+            "post": {
+                "tags": [
+                    "PostData"
+                ],
+                "summary": "delete single notification",
+                "description": "notification",
+                "operationId": "delete single notification",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "description": " Notification id",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/address/add": {
+            "post": {
+                "tags": [
+                    "Customer Address"
+                ],
+                "summary": "User login API",
+                "description": "Customer create new address ",
+                "operationId": "Customer add new Address  ",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "lat",
+                                    "lng",
+                                    "mobile",
+                                    "name",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "lat": {
+                                        "description": "lat",
+                                        "type": "string"
+                                    },
+                                    "lng": {
+                                        "description": "lng",
+                                        "type": "string"
+                                    },
+                                    "area_id": {
+                                        "description": "area_id",
+                                        "type": "number"
+                                    },
+                                    "mobile": {
+                                        "description": "mobile",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "name",
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "Office or home",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "address",
+                                        "type": "string"
+                                    },
+                                    "is_internal": {
+                                        "description": "True or False  0 or 1",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = true : User not activated || status = false : User not found or password is not correct"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/address/delete": {
+            "post": {
+                "tags": [
+                    "Customer Address"
+                ],
+                "summary": "Customer delete Address",
+                "description": "User login service returns user object",
+                "operationId": "Customer delete an address ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "address_id"
+                                ],
+                                "properties": {
+                                    "address_id": {
+                                        "description": " address id",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/cities-list": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get cities list",
+                "description": "get cities list ",
+                "operationId": "cities-list ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/contact-us": {
+            "post": {
+                "tags": [
+                    "PostData"
+                ],
+                "summary": "Contact us",
+                "description": "User login service returns user object",
+                "operationId": " Contact us ",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "mobile",
+                                    "name",
+                                    "title",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "description": " name",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": " email",
+                                        "type": "string"
+                                    },
+                                    "mobile": {
+                                        "description": " mobile",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": " title",
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "description": " message",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/categories-list": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get categories list",
+                "description": "get categories list ",
+                "operationId": "get all categories list ",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/app-content": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "App content ",
+                "description": "get categories list ",
+                "operationId": "get about-us , terms and conditions ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/app-settings": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get App settings ",
+                "description": "Get app settings",
+                "operationId": "Get App settings",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/check-coupon": {
+            "post": {
+                "tags": [
+                    "PostData"
+                ],
+                "summary": "Check coupon code",
+                "description": "User login service returns user object",
+                "operationId": "Check Coupon code",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "code"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "description": "code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/check-promo": {
+            "post": {
+                "tags": [
+                    "PostData"
+                ],
+                "summary": "Check promo code",
+                "description": "User login service returns user object",
+                "operationId": "Check promo code",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "code"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "description": "code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/test-sms": {
+            "post": {
+                "tags": [
+                    "PostData"
+                ],
+                "summary": "test sms",
+                "description": "",
+                "operationId": "test-sms ",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "mobileCode",
+                                    "mobileNumber",
+                                    "message"
+                                ],
+                                "properties": {
+                                    "mobileCode": {
+                                        "description": " mobileCode",
+                                        "type": "string"
+                                    },
+                                    "mobileNumber": {
+                                        "description": " mobileNumber",
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "description": " message",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                }
+            }
+        },
+        "/api/v1/coupons-list": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Coupons list ",
+                "description": "get categories list ",
+                "operationId": "Coupons list",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/send-test-notification": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Send test FCM notification ",
+                "description": "get categories list ",
+                "operationId": "send notification test",
+                "parameters": [
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "description": "customer_id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/get-customer-notification": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get customer notifications ",
+                "description": "get categories list ",
+                "operationId": "get customer notfications",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/trending-search": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get tranding search ",
+                "description": "Get app settings",
+                "operationId": "Get trending search",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/trending-designer-search": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get tranding designer search ",
+                "description": "Get app settings",
+                "operationId": " trending designer search",
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/filter-settings": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get fillter settings ",
+                "description": "Get app settings",
+                "operationId": "Get filter settings",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/payment-types": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "get App Payments types ",
+                "description": "get categories list ",
+                "operationId": "get all categories list ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/update-fcm-token": {
+            "post": {
+                "tags": [
+                    "Customer Authantication"
+                ],
+                "summary": "Update customer fcm token without customer auth",
+                "description": "User login service returns user object",
+                "operationId": "Update customer fcm token",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "token"
+                                ],
+                                "properties": {
+                                    "token": {
+                                        "description": "FCM token",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/order/place": {
+            "post": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "Place new Order",
+                "description": "send order service",
+                "operationId": "apiplaceOrder",
+                "requestBody": {
+                    "description": "search_trip",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user and transaction objects"
+                    },
+                    "422": {
+                        "description": "user not found or one of the fields is missing or token is invalid"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/order/place-new": {
+            "post": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "Place new Order",
+                "description": "send order service",
+                "operationId": "apiplaceOrderNew",
+                "requestBody": {
+                    "description": "new order v2",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user and transaction objects"
+                    },
+                    "422": {
+                        "description": "user not found or one of the fields is missing or token is invalid"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/order/list": {
+            "get": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "Get customer orders list ",
+                "description": "Get app settings",
+                "operationId": "Get customer orders list ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar|en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/order/get-order-details": {
+            "get": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "Get customer order details ",
+                "description": "Get app settings",
+                "operationId": "Get customer order details ",
+                "parameters": [
+                    {
+                        "name": "order_id",
+                        "in": "query",
+                        "description": "order_id",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar|en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/order/cancel-order": {
+            "post": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "Cancel Order",
+                "description": "change order status",
+                "operationId": "apiAddOrder",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "order_id"
+                                ],
+                                "properties": {
+                                    "order_id": {
+                                        "description": "Order ",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user and transaction objects"
+                    },
+                    "422": {
+                        "description": "user not found or one of the fields is missing or token is invalid"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/order/confirm-payment": {
+            "post": {
+                "tags": [
+                    "ConfirmOrder"
+                ],
+                "summary": "Confirm Order",
+                "description": "change order status",
+                "operationId": "confirm-payment",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "apple_pay_refernce"
+                                ],
+                                "properties": {
+                                    "order_id": {
+                                        "description": "Order ",
+                                        "type": "number"
+                                    },
+                                    "payment_id": {
+                                        "description": "Order Trsaction from  apple pay or taby  ",
+                                        "type": "number"
+                                    },
+                                    "payment_type_id": {
+                                        "description": "Order Payment ID ",
+                                        "type": "number"
+                                    },
+                                    "apple_pay_refernce": {
+                                        "description": "Order Reference ",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user and transaction objects"
+                    },
+                    "422": {
+                        "description": "user not found or one of the fields is missing or token is invalid"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/order/return-product": {
+            "post": {
+                "tags": [
+                    "CustomerOrder"
+                ],
+                "summary": "return order product  (order_id,order_product_id)",
+                "description": "change order status",
+                "operationId": "return-product",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "order_id",
+                                    "order_product_id"
+                                ],
+                                "properties": {
+                                    "order_id": {
+                                        "description": "Order ",
+                                        "type": "number"
+                                    },
+                                    "order_product_id": {
+                                        "description": "order product id ",
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user and transaction objects"
+                    },
+                    "422": {
+                        "description": "user not found or one of the fields is missing or token is invalid"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/customer/product/add-remove-product-wishlist": {
+            "post": {
+                "tags": [
+                    "Customer products"
+                ],
+                "summary": "Add/remove products wishlist/Favorite",
+                "description": "User login service returns user object",
+                "operationId": "Customer add remove product wishlist",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "product_id"
+                                ],
+                                "properties": {
+                                    "product_id": {
+                                        "description": " product_id",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and user object"
+                    },
+                    "422": {
+                        "description": "status = false : unauthorized customer"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/get-product-details": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get product details",
+                "description": "Get user wallet details service",
+                "operationId": "get product details ",
+                "parameters": [
+                    {
+                        "name": "product_id",
+                        "in": "query",
+                        "description": "product_id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/home-products": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get Home feature and list products ",
+                "description": "Get user wallet details service",
+                "operationId": "get feature products  ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/filter-products": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get filter products",
+                "description": "Get user wallet details service",
+                "operationId": "get filttered  product  ",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "description": "category_id",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "categories_list",
+                        "in": "query",
+                        "description": "categories_list",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "colors_list",
+                        "in": "query",
+                        "description": "colors_list",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sizes_list",
+                        "in": "query",
+                        "description": "sizes_list",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "designer_id",
+                        "in": "query",
+                        "description": "designer_id",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "min_price",
+                        "in": "query",
+                        "description": "min price",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "max_price",
+                        "in": "query",
+                        "description": "max price",
+                        "required": false,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "sort_by",
+                        "in": "query",
+                        "description": " new , low_price,high_price",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/update-products-prices": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "request for update product prices",
+                "description": "Get user wallet details service",
+                "operationId": "update product list",
+                "parameters": [
+                    {
+                        "name": "products_list",
+                        "in": "query",
+                        "description": "products_list",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/customer/product/favorite-list": {
+            "get": {
+                "tags": [
+                    "Customer products"
+                ],
+                "summary": "Get customer favorite products list ",
+                "description": "Get user wallet details service",
+                "operationId": "get favorite list  ",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/designers-list": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get Desiners list",
+                "description": "get categories list ",
+                "operationId": "adsf",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        },
+        "/api/v1/get-designer-with-products": {
+            "get": {
+                "tags": [
+                    "GetData"
+                ],
+                "summary": "Get designer with products",
+                "description": "get categories list ",
+                "operationId": "get only designer list ",
+                "parameters": [
+                    {
+                        "name": "designer_id",
+                        "in": "query",
+                        "description": "designer_id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "language",
+                        "in": "header",
+                        "description": "language ar OR en",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation with status = true and balances array of objects and user balance"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Order": {
+                "title": "OrderData  model",
+                "description": "OrderData model",
+                "properties": {
+                    "promo_code": {
+                        "title": "promo_code",
+                        "description": "promo_code",
+                        "type": "number",
+                        "format": "string",
+                        "default": ""
+                    },
+                    "transaction_id": {
+                        "title": "transaction_id",
+                        "description": "transaction_id",
+                        "type": "number",
+                        "format": "string",
+                        "default": ""
+                    },
+                    "use_wallet": {
+                        "title": "use_wallet",
+                        "description": "use_wallet",
+                        "type": "number",
+                        "format": "number",
+                        "default": "0"
+                    },
+                    "address_id": {
+                        "title": "address_id",
+                        "description": "address_id",
+                        "type": "number",
+                        "format": "number",
+                        "default": "0"
+                    },
+                    "payment_type_id": {
+                        "title": "payment_type_id",
+                        "description": "payment_type_id",
+                        "type": "number",
+                        "format": "number",
+                        "default": "0"
+                    },
+                    "products": {
+                        "title": "products",
+                        "description": "trips",
+                        "type": "array",
+                        "format": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderProduct"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OrderProduct": {
+                "title": "OrderProductObject  model",
+                "description": "OrderProductObject model",
+                "properties": {
+                    "product_id": {
+                        "title": "product_id",
+                        "description": "product id",
+                        "type": "number",
+                        "format": "number",
+                        "default": ""
+                    },
+                    "store_id": {
+                        "title": "store_id",
+                        "description": "store id",
+                        "type": "number",
+                        "format": "number",
+                        "default": ""
+                    },
+                    "coupon_id": {
+                        "title": " coupon_id",
+                        "description": " date",
+                        "type": "number",
+                        "format": "number",
+                        "default": ""
+                    },
+                    "qty": {
+                        "title": "quantity ",
+                        "description": "quantity ",
+                        "type": "number",
+                        "format": "number",
+                        "default": "1"
+                    },
+                    "size_id": {
+                        "title": "size",
+                        "description": "size_id",
+                        "type": "number",
+                        "format": "number",
+                        "default": ""
+                    },
+                    "color_id": {
+                        "title": "Color",
+                        "description": "color_id",
+                        "type": "number",
+                        "format": "number",
+                        "default": ""
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "api_key": {
+                "type": "apiKey",
+                "description": "send Bearer token",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authantication",
+            "description": "API Package for user authantication requests"
+        },
+        {
+            "name": "GetData",
+            "description": "API Package for retrieving data requests"
+        },
+        {
+            "name": "PostData",
+            "description": "API Package for posting data requests"
+        }
+    ],
+    "security": [
+        {
+            "api_key": []
+        }
+    ]
+}
