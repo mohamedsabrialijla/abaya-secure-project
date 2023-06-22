@@ -26,10 +26,10 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
     
-    //  public function category()
-    // {
-    //     return $this->belongsToMany(\App\Models\Category::class, 'product_categories', 'product_id', 'category_id');
-    // }
+     public function categories()
+    {
+        return $this->belongsToMany(\App\Models\Category::class, 'product_categories', 'product_id', 'category_id');
+    }
 
     public function store()
     {
