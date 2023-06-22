@@ -9,6 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
 /storage
 /storage/*
 .idea/vcs.xml
@@ -24,4 +25,3 @@ storage/logs/laravel.log
 public/app.zip
 .htaccess
 index.php
-
