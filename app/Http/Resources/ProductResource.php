@@ -32,6 +32,7 @@ class ProductResource extends JsonResource
             "annotation"=>$this->annotation,
             "in_favorite"=>$this->in_favorite,
             "category"=>CategoryResource::make( $this->category),
+            "categories"=>$this->categories,
             "offer"=>$this->coupons()?CouponResource::make( $this->coupons()->first()):null,
             // "offer"=>$this->coupons,
             "designer"=>DesignerResource::make($this->designer),

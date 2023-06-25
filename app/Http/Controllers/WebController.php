@@ -164,6 +164,10 @@ class WebController extends Controller
 
     public function cat($id)
     {
+        // $c = Category::all();
+        // foreach ($c as $key => $value) {
+        //     category::where('id',$value->id)->update(['slug_ar'=>trim(str_replace(' ', '-', $value->name_ar)), 'slug_en'=>str_slug($value->name_en)]);
+        // }
         $cat = Category::find($id);
         // return $cat;
         if ($cat) {
@@ -518,5 +522,27 @@ class WebController extends Controller
     public function table_size(){
 
         return view('web.table_size');
+    }
+
+
+
+     public function productBasedCategory($slug)
+    {
+
+        $cat = Category::filter($slug)->first();
+        // return $cat;
+        if ($cat) {
+            // $products = $cat->products;
+            $items = Product::with('categories')->whereHas('categories', function($q)use($slug){
+                $q->filter($slug);
+            })->where('is_active', true)->orderBy('ordering','asc');
+
+            $products = $items->paginate(8);
+            $products_without_paginate = $items->get();
+
+            return view('web.single_cat', compact('cat', 'products','products_without_paginate'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 }
