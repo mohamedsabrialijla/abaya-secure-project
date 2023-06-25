@@ -98,7 +98,7 @@
                @foreach ($cats as $cat)
 
                 <div class="col-lg-12 col-12">
-                    <a href="{{ route('cat', ['id' => $cat->id]) }}" class="category category-ellipse d-block">
+                    <a href="{{ route('product_based_category', ['slug' => $cat->slug]) }}" class="category category-ellipse d-block">
                         <div class="category-media">
                             <img data-src="{{ $cat->image_url }}" class="lazyload" loading="lazy" alt="Categroy" width="190" height="190" style="background-color: #E2E2E2;">
                         </div>
@@ -116,7 +116,7 @@
                 @foreach ($categories as $cat)
 
                 <div class="col-lg-4 col-6">
-                    <a href="{{ route('cat', ['id' => $cat->id]) }}" class="category category-ellipse d-block">
+                    <a href="{{ route('product_based_category', ['slug' => $cat->slug]) }}" class="category category-ellipse d-block">
                         <div class="category-media">
                             <img data-src="{{ $cat->image_url }}" class="lazyload" loading="lazy" alt="Categroy" width="190" height="190" style="background-color: #E2E2E2;">
                         </div>
@@ -347,7 +347,7 @@
                             <h5>{{ $store->name }}</h5>
                             <h6>{{ $store->products_count }} @lang('site.abaya')</h6>
                         </div>
-                        <a href="{{ route('store', ['id'=>$store->id]) }}" class="main-btn animate main">@lang('site.show_products')</a>
+                        <a href="{{ route('product_based_store', ['slug' => $store->slug]) }}" class="main-btn animate main">@lang('site.show_products')</a>
                     </div>
                 </div>
                 @endforeach

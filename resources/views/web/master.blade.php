@@ -268,7 +268,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </li>
                                 @foreach ($cats as $item)
                                     <li>
-                                        <a href="{{ route('cat', ['id' => $item->id]) }}">
+                                        <a href="{{ route('product_based_category', ['slug' => $cat->slug]) }}">
                                             <i class="fal fa-angle-double-left"></i>
                                             <span>{{ $item->name }}</span>
                                         </a>
@@ -431,7 +431,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="toggle-submenu"><i class="fal fa-chevron-down"></i></span>
                     </li>
                     @foreach ($cats as $cat)
-                        <li><a href="{{ route('cat', ['id' => $cat->id]) }}"
+                        <li><a href="{{ route('product_based_category', ['slug' => $cat->slug]) }}"
                                 target="_parent">{{ $cat->name }}</a></li>
                     @endforeach
                     {{-- <li><a href="{{ route('about') }}" target="_parent">@lang('site.about_us')</a></li> --}}

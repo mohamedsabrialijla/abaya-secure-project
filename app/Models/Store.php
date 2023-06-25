@@ -17,7 +17,7 @@ class Store extends Authenticatable
     //
     use SoftDeletes;
     use MultiLanguage;
-    protected $multi_lang = ['name'];
+    protected $multi_lang = ['name','slug'];
 
     protected $table = 'stores';
     protected $appends = ['image', 'image_thumbnail', 'instagram_username', 'snapchat_username', 'products_count', 'return_policy'];
@@ -30,6 +30,36 @@ class Store extends Authenticatable
         if (app()->getLocale() == 'en')
 
             return $this->name_en;
+    }
+
+
+     public function getSlugAttribute(){
+
+
+        if(app()->getLocale()=='ar')
+
+            return $this->slug_ar;
+
+
+
+        if(app()->getLocale()=='en')
+
+            return $this->slug_en;
+    }
+
+
+
+    public function scopeFilter($builder, $filters = []){
+
+        if(!$filters) {
+            return $builder;
+        }
+
+        if(app()->getLocale()=='ar'){
+            $builder->where('slug_ar',$filters);
+        }else{
+            $builder->where('slug_en',$filters);
+        }
     }
 
     public function getImageAttribute()
