@@ -182,6 +182,13 @@ class WebController extends Controller
 
     public function store($id)
     {
+
+        // $c = Store::all();
+        // // return $c;
+        // foreach ($c as $key => $value) {
+        //     Store::where('id',$value->id)->update(['slug_ar'=>trim(str_replace(' ', '-', $value->name_ar)), 'slug_en'=>str_slug($value->name_en)]);
+        // }
+
         $store = Store::find($id);
         if ($store) {
             $products = $store->products;
@@ -530,7 +537,6 @@ class WebController extends Controller
     {
 
         $cat = Category::filter($slug)->first();
-        // return $cat;
         if ($cat) {
             // $products = $cat->products;
             $items = Product::with('categories')->whereHas('categories', function($q)use($slug){
@@ -541,6 +547,19 @@ class WebController extends Controller
             $products_without_paginate = $items->get();
 
             return view('web.single_cat', compact('cat', 'products','products_without_paginate'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+
+     public function productBasedStore($slug)
+    {
+
+        $store = Store::filter($slug)->first();
+        if ($store) {
+            $products = $store->products;
+            return view('web.single_store', compact('store', 'products'));
         } else {
             return redirect()->route('home');
         }
