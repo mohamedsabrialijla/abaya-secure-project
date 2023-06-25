@@ -92,6 +92,17 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
+
+
+
+        // New route for website
+
+        Route::get('/category/{slug}', [WebController::class, 'productBasedCategory'])->name('product_based_category');
+
+
+        // End new route website
+
+
         Route::post('applepayindex', [ApplePaymentController::class, 'index'])->name('applepayindex');
         Route::get('/findCity/{id}', [WebController::class, 'findcity'])->name('findCity');
         Route::get('/', [WebController::class, 'home'])->name('home');
