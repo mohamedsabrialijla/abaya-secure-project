@@ -59,10 +59,17 @@ class Category extends Model{
     }
 
 
+
+
     public function products()
     {
-        return $this->hasMany(Product::class,'category_id')->where('is_active', true)->orderBy('ordering','asc');
+        return $this->hasMany(ProductCategories::class,'category_id')->whereHas('product', function($q){
+                $q->where('ordering', 'asc')->where('is_active', true);
+            });
+
     }
+
+    
 
 
     

@@ -28,11 +28,11 @@
                             <div class="my_products wow fadeInUp">
                                 <div class="cart_product">
                                     <div class="info_broduct d-flex">
-                                        <a href="{{ route('single_product', $item->attributes->product_id) }}" class="image d-block"><img
+                                        <a href="{{ route('product_page', $item->attributes->slug) }}" class="image d-block"><img
                                                 src="{{ $item->attributes->image }}" alt=""></a>
                                         <div class="details">
                                             <h6 class="name"><a
-                                                    href="{{ route('single_product', $item->attributes->product_id) }}">{{ $item->name }}</a></h6>
+                                                    href="{{ route('product_page', $item->attributes->slug) }}">{{ $item->name }}</a></h6>
                                             <div class="price">
                                                 <span class="num bold">{{ $item->price }}</span>
                                                 <span class="text">@lang('site.rs')</span>

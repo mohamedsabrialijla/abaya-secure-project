@@ -99,6 +99,7 @@ Route::group(
 
         Route::get('/product-category/{slug}', [WebController::class, 'productBasedCategory'])->name('product_based_category');
         Route::get('/product-store/{slug}', [WebController::class, 'productBasedStore'])->name('product_based_store');
+        Route::get('/product/{slug}', [WebController::class, 'productPage'])->name('product_page');
 
 
         // End new route website

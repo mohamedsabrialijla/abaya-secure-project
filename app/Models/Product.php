@@ -14,7 +14,7 @@ class Product extends Model
 {
     //
     use SoftDeletes,MultiLanguage,HasFactory;
-    protected $multi_lang = ['name', 'details'];
+    protected $multi_lang = ['name', 'details','slug'];
 
     protected $table = 'products';
     protected $appends = ['image','image_url','has_discount', 'in_favorite','annotation','feature_image_url','slider_image_url'];
@@ -30,6 +30,7 @@ class Product extends Model
     {
         return $this->belongsToMany(\App\Models\Category::class, 'product_categories', 'product_id', 'category_id');
     }
+
 
     public function store()
     {
@@ -260,6 +261,37 @@ class Product extends Model
     {
         $dateNow = Carbon::now();
         return $this->belongsToMany(Coupon::class, 'coupon_products')->where('start_date', '<=', $dateNow)->where('expire_date', '>=', $dateNow)->where('is_active', true);
+    }
+
+
+
+    public function getSlugAttribute(){
+
+
+        if(app()->getLocale()=='ar')
+
+            return $this->slug_ar;
+
+
+
+        if(app()->getLocale()=='en')
+
+            return $this->slug_en;
+    }
+
+
+
+    public function scopeFilter($builder, $filters = []){
+
+        if(!$filters) {
+            return $builder;
+        }
+
+        if(app()->getLocale()=='ar'){
+            $builder->where('slug_ar',$filters);
+        }else{
+            $builder->where('slug_en',$filters);
+        }
     }
 
 }

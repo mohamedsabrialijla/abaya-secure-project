@@ -51,12 +51,12 @@ class ProductController extends Controller
             });
 
         }
-        if ($request->category_id > 0) {
-            $o=  $o->where("category_id", $request->category_id);
-        }
-        if ($request->category_id > 0) {
-            $o=   $o->where("category_id", $request->category_id);
-        }
+        // if ($request->category_id > 0) {
+        //     $o=  $o->where("category_id", $request->category_id);
+        // }
+        // if ($request->category_id > 0) {
+        //     $o=   $o->where("category_id", $request->category_id);
+        // }
         if ($request->filled('store_id')) {
             $o=   $o->where("store_id", $request->store_id);
         }
@@ -94,12 +94,12 @@ class ProductController extends Controller
             });
 
         }
-        if ($request->category_id > 0) {
-            $o=  $o->where("category_id", $request->category_id);
-        }
-        if ($request->category_id > 0) {
-            $o=   $o->where("category_id", $request->category_id);
-        }
+        // if ($request->category_id > 0) {
+        //     $o=  $o->where("category_id", $request->category_id);
+        // }
+        // if ($request->category_id > 0) {
+        //     $o=   $o->where("category_id", $request->category_id);
+        // }
         if ($request->filled('store_id')) {
             $o=   $o->where("store_id", $request->store_id);
             Session()->put('store_id',$request->store_id);
@@ -189,7 +189,7 @@ class ProductController extends Controller
         $object->discount_ratio = $request->ratio;
         $object->sale_price =$request->ratio?round(($request->price - (($request->price * ($request->ratio / 100)))),2):$request->price;
         $object->price = $request->price;
-        $object->category_id = $request->category_id;
+        // $object->category_id = $request->category_id;
         $object->store_id = $request->store_id;
         $object->is_offer = $request->get('is_banner', 0) ? 1 : 0;
 
@@ -238,7 +238,7 @@ class ProductController extends Controller
             $object->colors()->sync($request->colors);
             $object->clothes()->sync($request->clothes);
              $object->style()->sync($request->style);
-            //  $object->category()->sync($request->categories);
+             $object->categories()->sync($request->categories);
         }
         
         
@@ -294,7 +294,7 @@ class ProductController extends Controller
         $product_colors=$out->colors()->get()->pluck('id')->toArray();
          $product_clothes=$out->clothes()->get()->pluck('id')->toArray();
           $product_style=$out->style()->get()->pluck('id')->toArray();
-          $product_categories=$out->category()->get()->pluck('id')->toArray();
+          $product_categories=$out->categories()->get()->pluck('id')->toArray();
         //   return $product_categories;
         return view('system_admin.products.update',
             compact('out', 'stores','categories', 'properties','colors_list','sizeslist','product_sizes','product_colors','clothes_list','style_list','product_clothes','product_style','product_categories'));
@@ -303,12 +303,15 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        // return $request->all();
+
         $this->validate($request, [
             'name_ar' => ['required' ],
             'name_en' => ['required', new ValidString()],
             'ratio' => 'required|numeric|min:0|max:100',
             'price' => 'required|numeric|min:1|max:99999',
-            'category_id' => 'required|exists:categories,id',
+            // 'category_id' => 'required|exists:categories,id',
             'store_id' => 'required|exists:stores,id',
             'details_ar' => 'required',
             'details_en' => 'required',
@@ -329,7 +332,7 @@ class ProductController extends Controller
             if ($products >= 18){
                 flash('لا يمكن إضافة المنتج كمنتج مميز ، وصل عدد المنتجات المميزة للحد الأقصى');
 
-                return redirect()->back()->withInput();
+                 return redirect()->back()->withInput();
             }
         }
 
@@ -341,7 +344,7 @@ class ProductController extends Controller
         $object->details_en = $request->details_en;
         $object->discount_ratio = $request->ratio;
         $object->price = $request->price;
-        $object->category_id = $request->category_id;
+        // $object->category_id = $request->category_id;
         $object->sale_price =$request->ratio?round(($request->price - (($request->price * ($request->ratio / 100)))),2):$request->price;
         $object->store_id = $request->store_id;
         $object->is_offer = $request->get('is_banner', 0) ? 1 : 0;
@@ -392,12 +395,12 @@ class ProductController extends Controller
                     }
                 }
 
-//            $object->sizes()->sync((array)$request->sizes);
+        //            $object->sizes()->sync((array)$request->sizes);
         }
             $object->colors()->sync((array)$request->colors);
             $object->clothes()->sync((array)$request->clothes);
              $object->style()->sync((array)$request->style);
-            //  $object->category()->sync((array)$request->categories);
+             $object->categories()->sync((array)$request->categories);
         }
 
         flash('تم التعديل بنجاح');
@@ -586,9 +589,9 @@ class ProductController extends Controller
             });
 
         }
-        if ($request->category_id > 0) {
-            $o->where("category_id", $request->category_id);
-        }
+        // if ($request->category_id > 0) {
+        //     $o->where("category_id", $request->category_id);
+        // }
         if ($request->status > -1) {
             $o->where('is_active', $request->status);
         }
@@ -685,9 +688,9 @@ class ProductController extends Controller
             });
 
         }
-        if ($request->category_id > 0) {
-            $o->where("category_id", $request->category_id);
-        }
+        // if ($request->category_id > 0) {
+        //     $o->where("category_id", $request->category_id);
+        // }
         if ($request->status > -1) {
             $o->where('is_active', $request->status);
         }

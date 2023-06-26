@@ -32,7 +32,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="box_product wow fadeInUp">
                         <figure>
-                            <a href="{{ route('single_product', ['id' => $m->id]) }}">
+                            <a href="{{ route('product_page', ['slug' => $m->slug]) }}">
                                 <img data-src="{{ $m->image_url ?? asset('uploads/logo.png') }}" class="lazyload"
                                     width="280" height="280" alt="product">
                                 <img data-src="{{ $m->feature_image_url ?? $m->image_url }}" class="lazyload"
@@ -54,7 +54,7 @@
 
                             </div>
                             <h3 class="product-title">
-                                <a href="{{ route('single_product', ['id' => $m->id]) }}">{{ $m->name }}</a>
+                                <a href="{{ route('product_page', ['slug' => $m->slug]) }}">{{ $m->name }}</a>
                             </h3>
                             {{-- <div class="ratings-container">
                                 <i class="fas fa-star"></i>
@@ -91,10 +91,10 @@
                                 @endif
                                 <!-- <button type="button" class="btn-icon btn-add-cart product-type-simple toggle-cartside border-0"><i class="fal fa-shopping-cart"></i><span>@lang('site.add_cart')</span></button>
                                                                                                                         <a href="{{ route('single_product', ['id' => $m->id]) }}" class="btn-quickview" title="Quick View"><i class="fas fa-external-link-alt"></i></a> -->
-                                <a href="{{ route('single_product', ['id' => $m->id]) }}"
+                                <a href="{{ route('product_page', ['slug' => $m->slug]) }}"
                                     class="btn-icon btn-add-cart product-type-simple border-0"><i
                                         class="fal fa-eye"></i><span>@lang('site.details')</span></a>
-                                <a href="{{ route('single_product', ['id' => $m->id]) }}" data-toggle="modal"
+                                <a href="{{ route('product_page', ['slug' => $m->slug]) }}" data-toggle="modal"
                                     data-target="#shareModal" class="btn-quickview" aria-label="quickview"
                                     title="Quick View"><i class="fa-light fa-share-nodes"></i></a>
 

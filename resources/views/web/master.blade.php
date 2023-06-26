@@ -125,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         target="_parent">@lang('site.designers')</a>
                                     <ul class="sub-menu default">
                                         @foreach ($stores as $store)
-                                            <li><a href="{{ route('store', ['id' => $store->id]) }}"
+                                            <li><a href="{{ route('product_based_store', ['slug' => $store->slug]) }}"
                                                     target="_parent">{{ $store->name }}</a></li>
                                         @endforeach
                                     </ul>
@@ -353,10 +353,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                             @foreach ($cartItems as $item)
                                     <li class="woocommerce-mini-cart-item mini_cart_item">
-                                        {{-- <span data-id="{{ $id }}" class="remove remove_from_cart_button pointer" target="_parent">
-                                        <i class="fal fa-times-circle main-color remove-from-cart"
-                                                style="color: red" ></i></span> --}}
-                                        <a href="{{ route('single_product', $item->attributes->product_id) }}" target="_parent">
+                                        
+                                        <a href="{{ route('product_page', $item->attributes->slug) }}" target="_parent">
                                             <img width="70" height="100" src="{{ $item->attributes->image }}"
                                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                 alt="" loading="lazy">

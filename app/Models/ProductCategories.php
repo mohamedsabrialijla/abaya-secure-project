@@ -34,7 +34,12 @@ class ProductCategories extends Model
     }
 
     public function category(){
-        return $this->belongsTo(Category::class,'caategory_id');
+        return $this->belongsTo(Category::class,'category_id');
+    }
+
+ 
+     public function categories(){
+        return $this->hasMany(ProductCategories::class,'caategory_id');
     }
 
     public function stock(){

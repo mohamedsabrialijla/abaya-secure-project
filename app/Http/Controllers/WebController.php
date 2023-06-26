@@ -33,6 +33,12 @@ class WebController extends Controller
 {
     public function home()
     {
+
+        // $c = Product::all();
+        // foreach ($c as $key => $value) {
+        //     Product::where('id',$value->id)->update(['slug_ar'=>trim(str_replace(' ', '-', $value->name_ar)), 'slug_en'=>str_slug($value->name_en)]);
+        // }
+
         $stores = Store::where('status', 1)->orderBy('ordering','asc')->get();
         $sliders = Slider::all();
         $offers = Offer::all();
@@ -180,7 +186,7 @@ class WebController extends Controller
         }
     }
 
-    public function store($id)
+    public function store($slug)
     {
 
         // $c = Store::all();
@@ -189,7 +195,7 @@ class WebController extends Controller
         //     Store::where('id',$value->id)->update(['slug_ar'=>trim(str_replace(' ', '-', $value->name_ar)), 'slug_en'=>str_slug($value->name_en)]);
         // }
 
-        $store = Store::find($id);
+        $store = Store::filter($slug)->first();
         if ($store) {
             $products = $store->products;
             // dd($store->products);
@@ -289,10 +295,12 @@ class WebController extends Controller
             \Cart::add(array(
                 'id' => $row_id,
                 'name' => $product->name,
+                'slug' => $product->slug,
                 'price' => $product->sale_price,
                 'quantity' => $request->quantity,
                 'attributes' => array(
                     'product_id' => $product->id,
+                    'slug' => $product->slug,
                     'size' => $size->name,
                     "size_id" => $size->id,
                     "image" => $product->image_url
@@ -539,6 +547,7 @@ class WebController extends Controller
         $cat = Category::filter($slug)->first();
         if ($cat) {
             // $products = $cat->products;
+            // return Product::with('categories')->get();
             $items = Product::with('categories')->whereHas('categories', function($q)use($slug){
                 $q->filter($slug);
             })->where('is_active', true)->orderBy('ordering','asc');
@@ -564,4 +573,44 @@ class WebController extends Controller
             return redirect()->route('home');
         }
     }
+
+
+    public function productPage($slug)
+    {
+        $check = 0;
+        if(session::get('p') != ''){
+            $check = 1 ;
+            session::put('p','');
+        }
+
+        $product = Product::filter($slug)->with('categories','coupons')->first();
+        // return $product;
+        $stock = 0;
+        // dd($product->productSizes[0]->qty(),ProductSizeResource::collection($product->productSizes));
+        if ($product && $product->is_active == 1) {
+            foreach ($product->productSizes as $size) {
+                $stock = $stock + $size->qty();
+            }
+            $coupons = $product->coupons;
+            $sales = Product::whereNotIn('id', [$product->id])->where('category_id', $product->category_id)->where('is_active', 1)->inRandomOrder()->take(5)->get();
+
+            $cartItems = \Cart::getContent(); 
+            $products_ides = [];
+            $quentites=[];
+            foreach($cartItems as $k){
+                array_push($products_ides,$k->attributes->product_id );
+                array_push($quentites,$k->quantity );
+            }
+            $products = Product::with('category','store')->whereIn('id',$products_ides)->get();
+
+            // return $sales; 
+
+            return view('web.single_product', compact('product', 'sales', 'coupons', 'stock','products','quentites','check'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+
+
 }
